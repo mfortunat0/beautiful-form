@@ -1,6 +1,6 @@
 <h1 align=center>Beautiful Form</h1>
 <p align=center>
-Technologies: next.js, prettier, eslint, styled-components
+Technologies: next.js,styled-components, typescript, prettier, eslint
 </p>
 <p align=center>
 <a href="https://www.youtube.com/channel/UCgMbExqiFFPza79dyMsuugw">
