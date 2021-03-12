@@ -10,3 +10,12 @@ Created by Gabriela Pinheiro
 <a href="https://www.youtube.com/watch?v=OR8ySydmqLQ">Youtube Video<a/>
 <a>
 </p>
+
+<h1 align=center>Start</h1>
+
+```bash
+yarn && yarn dev
+npm install && npm dev
+```
+
+<a href="http://localhost:3000">Access port 3000</a>
