@@ -1,4 +1,18 @@
-import { createGlobalStyle } from "styled-components";
+import {
+  createGlobalStyle,
+  DefaultTheme,
+  ThemeProvider,
+} from "styled-components";
+
+const Theme: DefaultTheme = {
+  linearGradient: "linear-gradient(120deg,#e75590,#00c2cb)",
+  buttonLinear: "linear-gradient(120deg, #e75590, #00c2cb, #e75590)",
+  white: "#fff",
+  black: "#303030",
+  gray: "#929292",
+  lightGray: "#cfcfcf",
+  borderHeight: "1px",
+};
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -15,9 +29,9 @@ const GlobalStyle = createGlobalStyle`
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <ThemeProvider theme={Theme}>
       <GlobalStyle />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }

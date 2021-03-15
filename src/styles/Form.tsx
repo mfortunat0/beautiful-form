@@ -3,7 +3,7 @@ import styled from "styled-components";
 const LoginContainer = styled.div`
   min-height: 400px;
   width: 300px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.white};
   box-sizing: border-box;
   padding: 32px;
   border-radius: 8px;
@@ -13,7 +13,7 @@ const LoginContainer = styled.div`
 `;
 const LoginTitle = styled.h1`
   margin-bottom: 32px;
-  color: #303030;
+  color: ${(props) => props.theme.black};
 `;
 const LoginForm = styled.form`
   width: 100%;
@@ -31,39 +31,46 @@ const LoginInput = styled.input.attrs({ type: `${(props) => props.type}` })`
   outline: none;
 `;
 const LoginInputBorder = styled.span`
-  height: 1px;
+  height: ${(props) => props.theme.borderHeight};
   width: 100%;
   margin-bottom: 16px;
-  background-color: #cfcfcf;
+  background-color: ${(props) => props.theme.lightGray};
   transition: 0.3s ease-in-out;
-  &after {
+  &:after {
     content: "";
     display: block;
-    height: 1px;
+    height: ${(props) => props.theme.borderHeight};
     width: 0;
     margin-bottom: 16px;
-    background: linear-gradient(120deg, #e75590, #00c2cb);
+    background: ${(props) => props.theme.linearGradient};
     transition: 0.3s ease-in-out;
+    ${LoginInput}:focus + & {
+      width: 100%;
+    }
   }
 `;
+
 const LoginSubmit = styled.button`
   height: 48px;
   width: 100%;
   outline: none;
-  background: linear-gradient(120deg, #e75590, #00c2cb, #e75590);
+  background: ${(props) => props.theme.buttonLinear};
   background-size: 200%;
   margin-bottom: 32px;
-  color: #fff;
+  color: ${(props) => props.theme.white};
   font-size: 16px;
   font-weight: bold;
   border: unset;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  &:hover {
+    background-position: right;
+  }
 `;
 const LoginReset = styled.a`
   font-size: 12px;
-  color: #929292;
+  color: ${(props) => props.theme.gray};
   text-decoration: none;
 `;
 
