@@ -11,6 +11,10 @@ Created by Gabriela Pinheiro
 <a>
 </p>
 
+<p align=center>
+<img src="preview.gif">
+</p>
+
 <h1 align=center>Start</h1>
 
 ```bash
