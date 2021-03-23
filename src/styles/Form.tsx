@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface ILoginInput {
+  type: string;
+}
+
 const LoginContainer = styled.div`
   min-height: 400px;
   width: 300px;
@@ -11,10 +15,12 @@ const LoginContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 const LoginTitle = styled.h1`
   margin-bottom: 32px;
   color: ${(props) => props.theme.black};
 `;
+
 const LoginForm = styled.form`
   width: 100%;
   display: flex;
@@ -22,7 +28,10 @@ const LoginForm = styled.form`
   align-items: center;
   justify-content: center;
 `;
-const LoginInput = styled.input.attrs({ type: `${(props) => props.type}` })`
+
+const LoginInputEmail = styled.input.attrs<ILoginInput>({
+  type: "email",
+})`
   height: 40px;
   width: 100%;
   box-sizing: border-box;
@@ -30,6 +39,18 @@ const LoginInput = styled.input.attrs({ type: `${(props) => props.type}` })`
   border: unset;
   outline: none;
 `;
+
+const LoginInputPassword = styled.input.attrs<ILoginInput>({
+  type: "password",
+})`
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 8px;
+  border: unset;
+  outline: none;
+`;
+
 const LoginInputBorder = styled.span`
   height: ${(props) => props.theme.borderHeight};
   width: 100%;
@@ -44,7 +65,10 @@ const LoginInputBorder = styled.span`
     margin-bottom: 16px;
     background: ${(props) => props.theme.linearGradient};
     transition: 0.3s ease-in-out;
-    ${LoginInput}:focus + & {
+    ${LoginInputEmail}:focus + & {
+      width: 100%;
+    }
+    ${LoginInputPassword}:focus + & {
       width: 100%;
     }
   }
@@ -68,6 +92,7 @@ const LoginSubmit = styled.button`
     background-position: right;
   }
 `;
+
 const LoginReset = styled.a`
   font-size: 12px;
   color: ${(props) => props.theme.gray};
@@ -77,7 +102,8 @@ const LoginReset = styled.a`
 export {
   LoginContainer,
   LoginForm,
-  LoginInput,
+  LoginInputEmail,
+  LoginInputPassword,
   LoginTitle,
   LoginReset,
   LoginSubmit,
