@@ -42,7 +42,7 @@ const Form = () => {
       <LoginForm>
         <LoginInputEmail ref={inputEmailRef} placeholder="e-mail" />
         <LoginInputBorder />
-        <LoginInputPassword ref={inputPasswordRef} placeholder="********" />
+        <LoginInputPassword ref={inputPasswordRef} placeholder="senha" />
         <LoginInputBorder />
         <LoginSubmit onClick={(e) => submitHandleButton(e)}>Login</LoginSubmit>
         <LoginReset href="#">Esqueci a senha</LoginReset>
