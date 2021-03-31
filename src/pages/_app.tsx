@@ -6,12 +6,15 @@ import {
 
 const Theme: DefaultTheme = {
   linearGradient: "linear-gradient(120deg,#e75590,#00c2cb)",
-  buttonLinear: "linear-gradient(120deg, #e75590, #00c2cb, #e75590)",
   white: "#fff",
   black: "#303030",
   gray: "#929292",
   lightGray: "#cfcfcf",
   borderHeight: "1px",
+  inputError: "red",
+  buttonLinear: "linear-gradient(120deg, #e75590, #00c2cb, #e75590)",
+  buttonDisabled: "#acacac",
+  buttonSucess: "rgb(18,151,107)",
 };
 
 const GlobalStyle = createGlobalStyle`
