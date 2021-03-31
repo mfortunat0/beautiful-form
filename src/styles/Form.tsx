@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 interface IValidate {
-  validateForm: boolean;
-}
-
-interface IButtonSubmit {
   state: string;
 }
 
@@ -58,8 +54,7 @@ const LoginInputBorder = styled.span<IValidate>`
   height: ${(props) => props.theme.borderHeight};
   width: 100%;
   margin-bottom: 16px;
-  background-color: ${(props) =>
-    props.validateForm ? props.theme.lightGray : props.theme.inputError};
+  background-color: ${(props) => props.theme.lightGray};
   transition: 0.3s ease-in-out;
   &:after {
     content: "";
@@ -67,8 +62,11 @@ const LoginInputBorder = styled.span<IValidate>`
     height: ${(props) => props.theme.borderHeight};
     width: 0;
     margin-bottom: 16px;
-    background: ${(props) =>
-      props.validateForm ? props.theme.lightGray : props.theme.inputError};
+    background: ${(props) => {
+      if (props.state === "invalid") return props.theme.lightGray;
+      else if (props.state === "error") return props.theme.inputError;
+      else return props.theme.linearGradient;
+    }};
     transition: 0.3s ease-in-out;
     ${LoginInputEmail}:focus + & {
       width: 100%;
@@ -79,7 +77,7 @@ const LoginInputBorder = styled.span<IValidate>`
   }
 `;
 
-const LoginSubmit = styled.button<IButtonSubmit>`
+const LoginSubmit = styled.button<IValidate>`
   height: 48px;
   width: 100%;
   outline: none;

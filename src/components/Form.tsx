@@ -15,8 +15,8 @@ const Form = () => {
   const inputEmailRef = useRef<HTMLInputElement>();
   const inputPasswordRef = useRef<HTMLInputElement>();
   const submitButtonRef = useRef<HTMLButtonElement>();
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [emailState, setEmailState] = useState("invalid");
+  const [passwordState, setPasswordState] = useState("invalid");
   const [buttonState, setButtonState] = useState("disabled");
 
   const validateEmail = () => {
@@ -24,10 +24,10 @@ const Form = () => {
     const emailTest = regex.test(inputEmailRef.current.value);
 
     if (!emailTest) {
-      setEmailError(false);
+      setEmailState("error");
       setButtonState("disabled");
     } else {
-      setEmailError(true);
+      setEmailState("valid");
       setButtonState("gradient");
       submitButtonRef.current.textContent = "Login";
     }
@@ -35,10 +35,10 @@ const Form = () => {
 
   const validadePassword = () => {
     if (inputPasswordRef.current.value.length < 8) {
-      setPasswordError(false);
+      setPasswordState("error");
       setButtonState("disabled");
     } else {
-      setPasswordError(true);
+      setPasswordState("valid");
       setButtonState("gradient");
       submitButtonRef.current.textContent = "Login";
     }
@@ -91,13 +91,13 @@ const Form = () => {
           ref={inputEmailRef}
           placeholder="e-mail"
         />
-        <LoginInputBorder validateForm={emailError} />
+        <LoginInputBorder state={emailState} />
         <LoginInputPassword
           onInput={validadePassword}
           ref={inputPasswordRef}
           placeholder="senha"
         />
-        <LoginInputBorder validateForm={passwordError} />
+        <LoginInputBorder state={passwordState} />
         <LoginSubmit
           ref={submitButtonRef}
           onClick={(e) => submitHandleButton(e)}
